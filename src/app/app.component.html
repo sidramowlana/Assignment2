@@ -1,0 +1,25 @@
+
+<br><div class="container">  
+  <app-game-control                       
+    (createNumber)="onStart()" 
+    (stopNumber)="onStop()">
+  </app-game-control>
+    <div class="row"
+    *ngFor="let hold of myHoldings">
+      <div class="col-xs-6"
+      [ngStyle]="{backgroundColor:'yellow'}">
+        <app-even
+        *ngIf="hold % 2 === 0"
+        [evenElement]="hold"></app-even>
+      </div>
+      <div class="col-xs-6"
+      [ngStyle]="{backgroundColor:'blue'}">
+        <app-odd
+        *ngIf="hold % 2 !== 0"
+        [oddElement]="hold"></app-odd>
+      </div>
+    </div>
+</div>
+<router-outlet></router-outlet>   
+
+  <!-- <p *ngFor="let hold of myHoldings">{{hold}}</p> -->
